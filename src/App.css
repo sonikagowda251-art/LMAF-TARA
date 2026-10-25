@@ -1338,3 +1338,51 @@ h1, h2, h3 { font-family: var(--serif); }
   .track-search { position: static; }
   .track-columns { grid-template-columns: 1fr; gap: 18px; }
 }
+
+/* ==================================================================
+   MOBILE — hamburger nav + small-screen polish
+   ================================================================== */
+
+/* Burger button: desktop-hidden, appears with the slide-down menu */
+.fk-burger { display: none; }
+.fk-mobile-nav { display: none; }
+@media (max-width: 900px) {
+  .fk-burger {
+    display: inline-flex; width: 42px; height: 42px; border-radius: 50%;
+    border: none; background: transparent; color: #d9d3c6; cursor: pointer;
+    align-items: center; justify-content: center; transition: .18s;
+  }
+  .fk-burger:hover { color: #fff; background: rgba(255,255,255,.09); }
+  .fk-mobile-nav {
+    display: flex; flex-direction: column;
+    position: absolute; top: 100%; left: 0; right: 0; z-index: 250;
+    background: var(--ink-soft); border-top: 1px solid rgba(255,255,255,.08);
+    padding: 6px 0 12px; box-shadow: 0 16px 28px rgba(0, 0, 0, .4);
+  }
+  .fk-mobile-link {
+    color: #d9d3c6; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;
+    padding: 14px 26px; min-height: 48px; display: flex; align-items: center; transition: .15s;
+  }
+  .fk-mobile-link:hover, .fk-mobile-link.on { color: #fff; background: rgba(255,255,255,.06); }
+  .fk-mobile-link.on { border-left: 3px solid var(--gold); padding-left: 23px; }
+}
+
+/* Phones: smaller wordmark + comfortable tap targets */
+@media (max-width: 640px) {
+  .fk-logo-word, .fk-logo-word-2 { font-size: 27px; }
+  .fk-logo-word-2 { margin-left: 8px; }
+  .fk-logo::after { bottom: -5px; width: 70%; }
+  .fk-header-inner { gap: 14px; }
+  .fk-actions { gap: 2px; }
+  .fk-searchbar.open { width: 150px; }
+  .pm-hero { padding: 54px 24px; min-height: 440px; }
+  .pm-hero-meta { flex-wrap: wrap; gap: 8px; }
+  .pm-cats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .pm-cat-card { height: 190px; }
+  .pm-scroll > * { flex: 0 0 190px; }
+  .fk-pcard-media img { height: 230px; }
+  .track-search-form { flex-direction: column; }
+  .team-form select, .team-form input { min-width: 0; width: 100%; }
+  .team-form .btn { width: 100%; justify-content: center; }
+  .report-success-actions .btn { width: 100%; justify-content: center; }
+}

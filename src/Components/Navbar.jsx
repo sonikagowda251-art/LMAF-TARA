@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { Search, ShoppingBag, User, Heart } from "lucide-react";
+import { Search, ShoppingBag, User, Heart, Menu, X } from "lucide-react";
 import { useCart } from "../Contexts/CartContext";
 import { useAuth } from "../Contexts/AuthContext";
 import { useWishlist } from "../Contexts/WishlistContext";
@@ -22,6 +22,7 @@ export default function Navbar() {
   const { user } = useAuth();
   const [query, setQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const submitSearch = (e) => {
     e.preventDefault();
@@ -56,6 +57,25 @@ export default function Navbar() {
             </NavLink>
           ))}
         </nav>
+
+        {/* Mobile slide-down menu (replaces the hidden nav below 900px) */}
+        {menuOpen && (
+          <nav className="fk-mobile-nav">
+            {navLinks.map((l) => (
+              <NavLink
+                key={l.label}
+                to={l.to}
+                end={l.to === "/"}
+                onClick={() => setMenuOpen(false)}
+                className={({ isActive }) =>
+                  isActive ? "fk-mobile-link on" : "fk-mobile-link"
+                }
+              >
+                {l.label}
+              </NavLink>
+            ))}
+          </nav>
+        )}
 
         {/* Actions */}
         <div className="fk-actions">
@@ -95,6 +115,16 @@ export default function Navbar() {
             <ShoppingBag size={19} />
             {count > 0 && <span className="fk-icon-badge">{count}</span>}
           </Link>
+
+          <button
+            type="button"
+            className="fk-burger"
+            aria-label="Menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((o) => !o)}
+          >
+            {menuOpen ? <X size={19} /> : <Menu size={19} />}
+          </button>
         </div>
       </div>
     </header>
