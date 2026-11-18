@@ -36,6 +36,15 @@ export default function Footer() {
           <Link to="/orders">Shipping</Link>
           <Link to="/orders">Returns &amp; Exchanges</Link>
           <Link to="/contact">Support</Link>
+          <Link to="/admin">Manage Products</Link>
+        </div>
+
+        <div className="pm-footer-col">
+          <h4>Reach Us</h4>
+          <a href="mailto:lmafindustries@gmail.com">lmafindustries@gmail.com</a>
+          <a href="tel:+917338686529">+91 73386 86529</a>
+          <a href="https://wa.me/917338686529" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+          <span className="pm-footer-text">Bangalore North, Karnataka</span>
         </div>
       </div>
 

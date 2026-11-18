@@ -7,6 +7,8 @@
 // NOTE: the internal field is still called `department`, but it holds a SEASON
 // value (Winter / Summer / Rainy / Spring). Gender stays in `category`.
 
+import { fetchSheetProducts, isSheetsConfigured } from "./sheets";
+
 const API = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 const img = (id, w = 400) =>
@@ -117,9 +119,24 @@ function fromBackend(p) {
   };
 }
 
+// Where the most recent fetchProducts() result came from: sheets | api | demo
+let catalogSource = "demo";
+export const getCatalogSource = () => catalogSource;
+
 export async function fetchProducts(force = false) {
   if (cache && !force) return cache;
 
+  // 1. Google Sheets catalog (owner-managed, no code / no deploy)
+  if (isSheetsConfigured()) {
+    const sheetItems = await fetchSheetProducts(force);
+    if (sheetItems) {
+      cache = sheetItems;
+      catalogSource = "sheets";
+      return cache;
+    }
+  }
+
+  // 2. Backend API, 3. demo catalog fallback
   try {
     const res = await fetch(`${API}/products`);
     if (!res.ok) throw new Error("API unavailable");
@@ -128,12 +145,14 @@ export async function fetchProducts(force = false) {
 
     if (Array.isArray(items) && items.length > 0) {
       cache = items.map(fromBackend);
+      catalogSource = "api";
       return cache;
     }
     throw new Error("Empty catalog");
   } catch (error) {
     console.log("Using demo catalog:", error.message);
     cache = demoProducts;
+    catalogSource = "demo";
     return cache;
   }
 }

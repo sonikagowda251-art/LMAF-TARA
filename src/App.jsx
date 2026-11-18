@@ -25,6 +25,7 @@ import Account from "./Pages/Account";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import TrackReport from "./Pages/TrackReport";
+import Admin from "./Pages/Admin";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -60,6 +61,7 @@ export default function App() {
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/track" element={<TrackReport />} />
+                  <Route path="/admin" element={<Admin />} />
                   <Route path="*" element={<Home />} />
                 </Routes>
               </div>
