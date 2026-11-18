@@ -1,16 +1,77 @@
-# React + Vite
+# LMAF TARA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Fashion E-commerce Website
 
-Currently, two official plugins are available:
+LMAF TARA is a fashion e-commerce website designed to provide users with a simple and enjoyable online shopping experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## About the Project
 
-## React Compiler
+LMAF TARA is a MERN Stack-based fashion shopping platform where customers can explore clothing collections and browse products.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
+- React.js
+- JavaScript
+- HTML5
+- CSS3
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Git & GitHub
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+```text
+LMAF-TARA/
+├── Frontend/
+├── Backend/
+└── README.md
+```
+
+*Note: Adjust the folder structure above if your actual project structure is different.*
+
+## Features
+
+- Modern fashion website interface
+- Browse clothing collections
+- Men, Women and Unisex categories
+- Seasonal collections
+- Responsive user interface
+- Product browsing and shopping experience
+
+## Installation and Setup
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/sonikagowda251-art/LMAF-TARA.git
+```
+
+2. Install frontend dependencies:
+
+```bash
+cd Frontend
+npm install
+```
+
+3. Install backend dependencies:
+
+```bash
+cd ../Backend
+npm install
+```
+
+4. Configure environment variables in your local `.env` file.
+
+5. Start the frontend and backend servers using their respective npm scripts.
+
+## Developer
+
+Sonika Gowda
+
+GitHub: https://github.com/sonikagowda251-art
+
+---
+
+**LMAF TARA – Fashion Meets Style.**
